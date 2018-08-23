@@ -1,10 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>自助签约移动版</title>
+	<title>自助签约</title>
 	<meta charset="utf-8">
+	<script src="./zzqy/js/vue.min.js"></script>
+	<script src="./zzqy/js/index.js"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<style type="text/css">
+		body{ margin: 0; padding: 0; }
+		input::-webkit-input-placeholder{
+			color:#959595;
+		}
+		a{text-decoration: none;}
+		#app{  font-size: 0.24rem; }
+		.zz-hd-a{height: 0.6rem; line-height: 0.6rem;font-size: 0.28rem;text-align: center; }
+		.zz-hd-b{ height: 0.4rem; background: #d6ecf9;  border-top:1px dashed #b5dcf3;  text-align: right; padding-right: 0.3rem; }
+		.zz-hd-b a img{height: 0.25rem; padding-top: 0.05rem;}
+		.zz-dl1{ padding-left: 0.3rem; padding-right: 0.3rem; height: 0.85rem; line-height: 0.85rem;}
+		.zz-dl1 dl{ border-bottom: 1px solid #f1f1f1;margin: 0; padding: 0;  }
+		.zz-dl1 dl dt{ display:table-cell; width: 1.5rem; color: #000; }
+		.zz-dl1 dl dd{ display:table-cell; width: 4.2rem; }
+		.zz-dl1 dl dd input{ border:0; outline: none; width: 100%;}
+		.zz-dl2{ padding-left: 0.3rem; padding-right: 0.3rem; height: 0.85rem; line-height: 0.85rem;}
+		.zz-dl2 dl{ border-bottom: 1px solid #f1f1f1;margin: 0; padding: 0;  }
+		.zz-dl2 dl dt{ display:table-cell; width: 1.5rem; color: #000; }
+		.zz-dl2 dl dd{ display:table-cell; width: 2.1rem; }
+		.zz-dl2 dl dd input{ border:0; outline: none; width: 100%;}
+		.zz-dl2 dl dd .thirddiv,.zz-dl2 dl dd .thirddiv a{ text-align:right; color: #339fdf;}
+		.zz-dl2 dl dd .thirddiv img{ height: 0.36rem; position: relative; top: 0.1rem; }
+		.zz-rd1{ padding: 0.32rem 0.3rem; color: #959595; }
+		.zz-rd1 img{ height: 0.24rem;  position: relative; top: 0.02rem;  }
+		.zz-rd1 a,.zz-rd1 span{ color:#0099e2; }
+		.zz-submit{ padding: 0 0.3rem; } 
+		.zz-submit p{ margin: 0; padding: 0; color: #fff; background: #bcbcbc; height: 0.76rem; line-height: 0.76rem; border-radius: 0.38rem; text-align: center;}
+		.zz-submit p.ison{background: #339fdf;}
+	}
+	</style>
 </head>
-<body>
-22
+<body >		
+	<div id="app">
+		<zz-hd1>
+			<div slot="title">注册</div>
+		</zz-hd1>
+		<zz-dl1>
+			<dt slot="title">手机号</dt>
+			<input type="text" placeholder="请输入手机号" slot="inputval">
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title">密码</dt>
+			<input type="password" placeholder="6-16位，要组合数字、字母或下划线" slot="inputval">
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title">确认密码</dt>
+			<input type="password" placeholder="请再次输入密码" slot="inputval">
+		</zz-dl1>
+		<zz-dl2>
+			<dt slot="title">验证码</dt>
+			<input type="text" placeholder="请输入验证码" slot="inputval">
+			<div class="thirddiv" slot="thirddiv"><img src="./zzqy/img/dom-yzm.png"></div>
+		</zz-dl2>
+		<zz-dl2>
+			<dt slot="title">动态码</dt>
+			<input type="text" placeholder="请输入动态验证码" slot="inputval">
+			<div class="thirddiv" slot="thirddiv"><a href="#">免费获取</a></div>
+		</zz-dl2>
+		<div class="zz-rd1">
+			<input type="radio" :checked="zzrd1val" style="display: none;">
+			<img src="./zzqy/img/dom-wxz.png" v-if="zzrd1val" @click="zzrd1valc">
+			<img src="./zzqy/img/dom-yxz.png" v-if="zzrd1val != 1" @click="zzrd1valc">
+			我已阅读并同意 
+			<a href="#"> 《用户注册及服务协议》</a>
+		</div>
+		<div class="zz-submit">
+			<p v-if="zzrd1val" class="ison">注册</p>
+			<p v-if="zzrd1val != 1">注册</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		Vue.component('zz-hd1',{
+			template:'\
+			<div class="zz-hd">\
+				<div class="zz-hd-a">\
+					<slot name="title"></slot>\
+				</div>\
+				<div class="zz-hd-b">\
+					<a href="#">\
+						<img src="./zzqy/img/icon-home.png">\
+					</a>\
+				</div>\
+			</div>'
+		});
+		Vue.component('zz-dl1',{
+			template:'\
+			<div class="zz-dl1">\
+				<dl>\
+					<dt>\
+						<slot name="title"></slot>\
+					</dt>\
+					<dd>\
+						<slot name="inputval"></slot>\
+					</dd>\
+				</dl>\
+			</div>'
+		});
+		Vue.component('zz-dl2',{
+			template:'\
+			<div class="zz-dl2">\
+				<dl>\
+					<dt>\
+						<slot name="title"></slot>\
+					</dt>\
+					<dd>\
+						<slot name="inputval"></slot>\
+					</dd>\
+					<dd>\
+						<slot name="thirddiv"></slot>\
+					</dd>\
+				</dl>\
+			</div>'
+		});
+		Vue.component('zz-dl2',{
+			template:'\
+			<div class="zz-dl2">\
+				<dl>\
+					<dt>\
+						<slot name="title"></slot>\
+					</dt>\
+					<dd>\
+						<slot name="inputval"></slot>\
+					</dd>\
+					<dd>\
+						<slot name="thirddiv"></slot>\
+					</dd>\
+				</dl>\
+			</div>'
+		});
+		var app = new Vue({
+			el:'#app',
+			data:{
+				zzrd1val:false
+			},
+			methods:{
+				zzrd1valc(){
+					this.zzrd1val = !this.zzrd1val;
+				}
+			}
+		});
+		
+	</script>
+
 </body>
 </html>
