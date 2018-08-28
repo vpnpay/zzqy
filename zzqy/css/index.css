@@ -38,3 +38,7 @@ input::-webkit-input-placeholder{color:#959595;}
 		.zz-tc1 .container dl{  width: 85%; height: 90%; overflow:hidden; overflow-y:scroll; margin:0 auto; font-size: 0.24rem;color: #666;}
 		.zz-tc1 .container dl dt{ font-size: 0.26rem; color: #000; text-align:center; padding-top: 0.36rem; padding-bottom: 0.5rem; }
 		.zz-tc1 .container ul{width: 100%; text-align: center; color: #339fdf; font-size: 0.3rem; padding-bottom: 0.3rem; padding-top: 0.3rem;}
+	.zz-pres .payok{ background:url(../../zzqy/img/icon-payok.png) no-repeat 50% 50%; background-size: 0.88rem; padding-top: 2rem; text-align: center; color:#1ea439; font-size: 0.32rem; padding-bottom: 0.26rem;}
+	.zz-pres .payno{ background:url(../../zzqy/img/icon-payno.png) no-repeat 50% 50%; background-size: 0.88rem; padding-top: 2rem; text-align: center; color:#bd0d23; font-size: 0.32rem; padding-bottom: 0.26rem;}
+	.zz-prestext{ width: 78%; margin: 0 auto; padding-bottom: 0.5rem; text-align: center; }
+	.zz-btn1 a{ display: block; width: 90%; margin: auto; border-radius: 0.38rem; line-height: 0.76rem; border:1px solid #339fdf; font-size: 0.3rem; text-align: center; color:#339fdf; text-decoration: none; }
