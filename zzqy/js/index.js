@@ -37,19 +37,16 @@ placeholderPic();
 				</dl>\
 			</div>'
 		});
-		Vue.component('zz-dl2',{
+		Vue.component('zz-dl3',{
 			template:'\
-			<div class="zz-dl2">\
+			<div class="zz-dl1 zz-dl3">\
 				<dl>\
-					<dt>\
+					<div>\
 						<slot name="title"></slot>\
-					</dt>\
-					<dd>\
+					</div>\
+					<div>\
 						<slot name="inputval"></slot>\
-					</dd>\
-					<dd>\
-						<slot name="thirddiv"></slot>\
-					</dd>\
+					</div>\
 				</dl>\
 			</div>'
 		});
@@ -60,10 +57,10 @@ placeholderPic();
 					<dt>\
 						<slot name="title"></slot>\
 					</dt>\
-					<dd>\
+					<dd class="first">\
 						<slot name="inputval"></slot>\
 					</dd>\
-					<dd>\
+					<dd class="last">\
 						<slot name="thirddiv"></slot>\
 					</dd>\
 				</dl>\

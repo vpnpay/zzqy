@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>自助签约</title>
+	<meta charset="utf-8">
+	<script src="./zzqy/js/vue.min.js"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="./zzqy/css/index.css">
+	<style type="text/css">
+	</style>
+</head>
+<body >		
+	<div id="app">
+		<zz-hd1>
+			<span slot="title">基本信息填写</span>
+		</zz-hd1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>开通业务类型</dt>
+			<select name=""  slot="inputval">
+				<option value="B2C／B2B网银支付">B2C／B2B网银支付 </option>
+			</select>
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title">&nbsp;客户经理代码</dt>
+			<input type="password" placeholder="请输入代码（选填）" slot="inputval">
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>公司名称</dt>
+			<input type="password" placeholder="请输入公司名称" slot="inputval">
+		</zz-dl1>
+		<zz-dl3>
+			<dt slot="title"><sup>*</sup>业务联系人姓名</dt><br>
+			<input type="password" placeholder="请输入联系人姓名" slot="inputval">
+		</zz-dl3>
+		<zz-dl3>
+			<dt slot="title"><sup>*</sup>业务联系人手机号</dt><br>
+			<input type="password" placeholder="请输入联系人手机号" slot="inputval">
+		</zz-dl3>
+		<zz-dl2>
+			<dt slot="title">&nbsp;图形验证码</dt>
+			<input type="text" placeholder="请输入图形验证码" slot="inputval">
+			<div class="thirddiv" slot="thirddiv"><img src="./zzqy/img/dom-yzm.png"></div>
+		</zz-dl2>
+		<zz-dl2>
+			<dt slot="title">&nbsp;短信验证码</dt>
+			<input type="text" placeholder="请输入短信验证码" slot="inputval">
+			<div class="thirddiv" slot="thirddiv"><a href="#" @click="mfhq(60)" id='mfhqval'>免费获取</a></div>
+		</zz-dl2>
+		<zz-dl3>
+			<dt slot="title">&nbsp;业务联系人座机</dt><br>
+			<input type="password" placeholder="请输入联系人座机" slot="inputval">
+		</zz-dl3>
+		<zz-dl3>
+			<dt slot="title"><sup>*</sup>业务联系人邮箱</dt><br>
+			<input type="password" placeholder="请输入联系人邮箱" slot="inputval">
+		</zz-dl3>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>企业性质</dt>
+			<select name=""  slot="inputval">
+				<option value="事业单位">事业单位 </option>
+			</select>
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>公司规模</dt>
+			<select name=""  slot="inputval">
+				<option value="1000人及以上">1000人及以上 </option>
+			</select>
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>经营场所性质</dt>
+			<select name=""  slot="inputval">
+				<option value="自有 ">自有 </option>
+			</select>
+		</zz-dl1>
+		<div class="h50">&nbsp;</div>
+		<div class="zz-submit">
+			<p class="ison">确定</p>
+		</div>
+		<div class="h50">&nbsp;</div>
+	</div>
+	<script src="./zzqy/js/index.js"></script>
+	<script type="text/javascript">	
+	</script>
+
+</body>
+</html>
