@@ -79,7 +79,22 @@ placeholderPic();
 			el:'#app',
 			data:{
 				zzrd1val:false,
-				zztc1val:false
+				zztc1val:false,
+				zztc2val:false,
+				zztc3val:false,
+				zztc4val:false,
+				zztc4vals:"",
+				zztc5val:false,
+				sfzbz:false,
+				styless1: {
+	                color: 'black'
+	            },
+				styless2: {
+	                color: 'black'
+	            },
+				styless3: {
+	                color: 'black'
+	            }
 			},
 			methods:{
 				zzrd1valc(){
@@ -95,6 +110,57 @@ placeholderPic();
 				},
 				closetc1(){
 					this.zztc1val = !this.zztc1val;
+				},
+				closetc2(){
+					this.zztc2val = !this.zztc2val;
+				},
+				closetc3(){
+					this.zztc3val = !this.zztc3val;
+				},
+				closetc4(){
+					this.zztc4val = !this.zztc4val;
+				},
+				closetc5(){
+					this.zztc5val = !this.zztc5val;
+				},
+				closetc4to1(){
+					if(this.zztc4vals="护照"){
+						this.styless1.color = 'red';
+						this.styless2.color = 'black';
+						this.styless3.color = 'black';
+						
+					}else{
+						this.styless1.color = 'black';
+						this.zztc4vals = "护照";
+					}
+					this.zztc4val = !this.zztc4val;
+					this.sfzbz = false;
+				},
+				closetc4to2(){
+					if(this.zztc4vals="身份证"){
+						this.styless2.color = 'red';
+						this.styless1.color = 'black';
+						this.styless3.color = 'black';
+					}else{
+						this.styless2.color = 'black';
+						this.zztc4vals = "身份证";
+					}
+					this.zztc4val = !this.zztc4val;
+					this.zztc5val = !this.zztc5val;
+					this.sfzbz = true;
+				},
+				closetc4to3(){
+					if(this.zztc4vals="驾驶证"){
+						this.styless3.color = 'red';
+						this.styless2.color = 'black';
+						this.styless1.color = 'black';
+						
+					}else{
+						this.styless3.color = 'black';
+						this.zztc4vals = "驾驶证";
+					}
+					this.zztc4val = !this.zztc4val;
+					this.sfzbz = false;
 				}
 			}
 		});

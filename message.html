@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>自助签约</title>
+	<meta charset="utf-8">
+	<script src="./zzqy/js/vue.min.js"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="./zzqy/css/index.css">
+	<style type="text/css">
+	</style>
+</head>
+<body >		
+	<div id="app">
+		<zz-hd1>
+			<span slot="title">企业信息验证</span>
+		</zz-hd1>
+		<zz-dl1>
+			<dt slot="title">公司名称</dt>
+			<input type="text" placeholder="请输入公司名称" slot="inputval">
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title">社会信用代码</dt>
+			<input type="text" placeholder="请输入社会信用代码（注册号）" slot="inputval">
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title">法人姓名</dt>
+			<input type="text" placeholder="请输入法人姓名" slot="inputval">
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title">法人证件类型</dt>
+			<input type="text" placeholder="请输入法人证件类型" slot="inputval" style="width: 2.4rem; background: url(./zzqy/img/ab2.png) no-repeat 98% 50%; " readonly v-model="zztc4vals"   @click="closetc4">
+		</zz-dl1>
+		<div class="zz-sfzbz" v-if="sfzbz">
+			<table>
+				<tr>
+					<td width="50%" align="center">
+						<div><img src="./zzqy/img/sfz1.png" ></div>
+						身份证头像页
+					</td>
+					<td width="50%" align="center">
+						<div><img src="./zzqy/img/sfz2.png" ></div>
+						身份证国徽页
+					</td>
+				</tr>
+			</table>
+			<div class="beizhu">
+				（附件请以图片形式上传，允许的后缀为：jpg、pdf，每张图片
+不超过300K）</div>
+		</div>
+			<div class="zz-tc1" v-if="zztc5val">
+				<div class="container" style="text-align: center; height: 30%; ">
+					<ul @click="closetc5">确定</ul>
+					<b @click="closetc5"><img src="./zzqy/img/icon-close.png"></b>
+					<dl>
+						<dt>提示</dt>
+						<dd>
+							请上传清晰的证件照片
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="zz-tc1" v-if="zztc4val">
+				<div class="container" style="text-align: center; height: 3rem; margin-bottom:0.1rem;">
+					<dl class="zz-dl1">
+						<dd @click="closetc4to1" :style="styless1">
+							护照
+						</dd>
+						<dd @click="closetc4to2" :style="styless2">
+							身份证
+						</dd>
+						<dd @click="closetc4to3" :style="styless3">
+							驾驶证
+						</dd>
+					</dl>
+				</div>
+			</div>
+		<zz-dl1>
+			<dt slot="title">法人证件号</dt>
+			<input type="text" placeholder="请输入法人证件号" slot="inputval">
+		</zz-dl1>
+		<zz-dl3>
+			<dt slot="title">企业银行账户名称</dt>
+			<input type="text" placeholder="请输入企业银行账户名称" slot="inputval">
+		</zz-dl3>
+		<zz-dl1>
+			<dt slot="title">企业开户行</dt>
+			<select name=""  slot="inputval">
+				<option value="请选择企业开户行 ">请选择企业开户行 </option>
+			</select>
+		</zz-dl1>
+		<zz-dl3>
+			<dt slot="title">企业账户开户支行名称</dt><br>
+			<input type="text" placeholder="请输入企业账户开户支行名称" slot="inputval">
+		</zz-dl3>
+		<zz-dl3>
+			<dt slot="title">企业开户行所在地区</dt><br>
+			<select name="" class="sdl3"  slot="inputval">
+				<option value="上海 ">上海 </option>
+			</select>
+			<select name=""  slot="inputval">
+				<option value="上海 ">上海 </option>
+			</select>
+		</zz-dl3>
+		<zz-dl3>
+			<dt slot="title">企业账户银行账号</dt>
+			<input type="text" placeholder="请输入企业账户银行账号" slot="inputval">
+		</zz-dl3>
+		<div class="zz-bz01">
+			该账户为签约用结算账户，我们将往该账户实时打入一笔随机金额，请收到后在后续页面中回填此金额，以验证该结算账户的真实性。
+		</div>
+		<div class="zz-rd1">
+			<input type="radio" :checked="zzrd1val" style="display: none;">
+			<img src="./zzqy/img/dom-wxz.png" v-if="zzrd1val" @click="zzrd1valc">
+			<img src="./zzqy/img/dom-yxz.png" v-if="zzrd1val != 1" @click="zzrd1valc">
+			我已阅读并同意 
+			<a href="#"  @click="closetc5"> 《银联电子授权采集协议》</a>
+			<a href="#"  @click="closetc3"> 《电子签章使用协议》</a>
+			<div class="zz-tc1" v-if="zztc2val">
+				<div class="container">
+					<ul @click="closetc2">确定</ul>
+					<b @click="closetc2"><img src="./zzqy/img/icon-close.png"></b>
+					<dl>
+						<dt>银联电子授权采集协议</dt>
+						<dd>
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="zz-tc1" v-if="zztc3val">
+				<div class="container">
+					<ul @click="closetc3">确定</ul>
+					<b @click="closetc3"><img src="./zzqy/img/icon-close.png"></b>
+					<dl>
+						<dt>电子签章使用协议</dt>
+						<dd>
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+							用户注册服务协议服务协议服务协议XXX
+							XXXXXXXXXXXXXXXXXXXXXXXXXXX
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<div class="zz-submit">
+			<p class="ison">开始验证</p>
+		</div>
+		<div class="h50">&nbsp;</div>
+	</div>
+	<script src="./zzqy/js/index.js"></script>
+	<script type="text/javascript">	
+	</script>
+
+</body>
+</html>
