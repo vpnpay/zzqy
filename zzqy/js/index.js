@@ -161,6 +161,13 @@ placeholderPic();
 					}
 					this.zztc4val = !this.zztc4val;
 					this.sfzbz = false;
+				},
+				imgandnext1(){
+					document.getElementById("imgandnext1").click();
+				},
+				imgandnext2(){
+					document.getElementById("imgandnext1").click();
 				}
 			}
 		});
+
