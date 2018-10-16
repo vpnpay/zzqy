@@ -11,6 +11,39 @@ window.onresize=function(){
 placeholderPic();
 }
 
+//选择图片，马上预览
+            function xmTanUploadImg(obj) {
+                var file = obj.files[0];
+                
+                console.log(obj);console.log(file);
+                console.log("file.size = " + file.size);  //file.size 单位为byte
+
+                var reader = new FileReader();
+
+                //读取文件过程方法
+                reader.onloadstart = function (e) {
+                    console.log("开始读取....");
+                }
+                reader.onprogress = function (e) {
+                    console.log("正在读取中....");
+                }
+                reader.onabort = function (e) {
+                    console.log("中断读取....");
+                }
+                reader.onerror = function (e) {
+                    console.log("读取异常....");
+                }
+                reader.onload = function (e) {
+                    console.log("成功读取....");
+
+                    var img = document.getElementById("xmTanImg");
+                    img.src = e.target.result;
+                    //或者 img.src = this.result;  //e.target == this
+                }
+
+                reader.readAsDataURL(file)
+            }
+
 		Vue.component('zz-hd1',{
 			template:'\
 			<div class="zz-hd">\
@@ -27,6 +60,19 @@ placeholderPic();
 		Vue.component('zz-dl1',{
 			template:'\
 			<div class="zz-dl1">\
+				<dl>\
+					<dt>\
+						<slot name="title"></slot>\
+					</dt>\
+					<dd>\
+						<slot name="inputval"></slot>\
+					</dd>\
+				</dl>\
+			</div>'
+		});
+		Vue.component('zz-dl4',{
+			template:'\
+			<div class="zz-dl4">\
 				<dl>\
 					<dt>\
 						<slot name="title"></slot>\
@@ -83,9 +129,18 @@ placeholderPic();
 				zztc2val:false,
 				zztc3val:false,
 				zztc4val:false,
+				zztc44val:false,
 				zztc4vals:"",
+				zztc44vals:" 请选择",
+				myqylx:"",
 				zztc5val:false,
+				zztc6val:false,
 				sfzbz:false,
+				quxiaoqdhval:true,
+				quxiaoqdhvals:"是",
+				styless:{
+					color: 'black'
+				},
 				styless1: {
 	                color: 'black'
 	            },
@@ -99,6 +154,13 @@ placeholderPic();
 			methods:{
 				zzrd1valc(){
 					this.zzrd1val = !this.zzrd1val;
+				},
+				quxiaoqdh(){
+					if(this.quxiaoqdhvals == "否"){
+						this.quxiaoqdhval = false;
+					}else{
+						this.quxiaoqdhval = true;
+					}
 				},
 				mfhq(mfhqval){
 					setInterval(function(){
@@ -120,8 +182,53 @@ placeholderPic();
 				closetc4(){
 					this.zztc4val = !this.zztc4val;
 				},
+				closetc44(){
+					this.zztc44val = !this.zztc44val;
+				},
 				closetc5(){
 					this.zztc5val = !this.zztc5val;
+				},
+				closetc6(){
+					this.zztc6val = !this.zztc6val;
+				},
+				closetc44to(myqylx){
+					switch(myqylx)
+					{
+					case 1:
+					  this.zztc44vals="国有";
+					  break;
+					case 2:
+					  this.zztc44vals="事业单位";
+					  break;
+					case 3:
+					  this.zztc44vals="股份制";
+					  break;
+					case 4:
+					  this.zztc44vals="社会团体";
+					  break;
+					case 5:
+					  this.zztc44vals="民营";
+					  break;
+					case 6:
+					  this.zztc44vals="个体工商户";
+					  break;
+					case 7:
+					  this.zztc44vals="境外独资";
+					  break;
+					case 8:
+					  this.zztc44vals="非盈利组织";
+					  break;
+					case 9:
+					  this.zztc44vals="合资";
+					  break;
+					default:
+					  this.zztc44vals="其他";
+					}
+					this.zztc44val = !this.zztc44val;
+				},
+				closetc4box(){
+					this.zztc4val=false;
+					this.sfzbz = false;
 				},
 				closetc4to1(){
 					if(this.zztc4vals="护照"){
@@ -148,6 +255,9 @@ placeholderPic();
 					this.zztc4val = !this.zztc4val;
 					this.zztc5val = !this.zztc5val;
 					this.sfzbz = true;
+				},
+				closetc6to1(){
+					this.zztc6val = !this.zztc6val;
 				},
 				closetc4to3(){
 					if(this.zztc4vals="驾驶证"){

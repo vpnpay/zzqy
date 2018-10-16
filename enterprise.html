@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>自助签约</title>
+	<meta charset="utf-8">
+	<script src="./zzqy/js/vue.min.js"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="./zzqy/css/index.css">
+	<style type="text/css">
+	</style>
+</head>
+<body >		
+	<div id="app">
+		<zz-hd1>
+			<span slot="title">企业信息</span>
+		</zz-hd1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>营业执照号</dt>
+			<input type="text" value="自动带出" slot="inputval" readonly>
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>公司名称</dt>
+			<input type="text" value="自动带出" slot="inputval" readonly>
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>公司主营业务</dt>
+			<input type="text" value="自动带出" slot="inputval" readonly>
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>公司注册地址</dt>
+			<input type="text" value="自动带出" slot="inputval" readonly>
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>公司办公地址</dt>
+			<input type="text" placeholder="请输入公司办公地址" slot="inputval">
+		</zz-dl1>
+		<zz-dl3>
+			<dt slot="title"><sup>*</sup>公司营业执照到期时间</dt><br>
+			<input type="text" value="自动带出" slot="inputval" readonly>
+		</zz-dl3>
+		<zz-dl3>
+			<dt slot="title"><sup>*</sup>公司注册资本金</dt><br>
+			<div slot="inputval">
+				<span style="margin-left: 30.5%; margin-right: 15%;">自动带出</span>
+				<span>单位：万元</span>
+			</div>
+		</zz-dl3>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>实缴资本</dt>
+			<input type="text" placeholder="请输入实缴资本" slot="inputval">
+		</zz-dl1>
+		<zz-dl3>
+			<dt slot="title"><sup>*</sup>实缴资本认定材料</dt><br>
+			<input type="text" placeholder="请输入认定材料" slot="inputval">
+		</zz-dl3>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>企业性质</dt>
+			<input type="text" slot="inputval" style="width: 1.4rem; background: url(./zzqy/img/ab2.png) no-repeat 98% 50%; " readonly v-model="zztc44vals"   @click="closetc44" >
+		</zz-dl1>
+			<div class="zz-tc1" v-if="zztc44val">
+				<div class="container" style="text-align: center; height: 9.5rem; margin-bottom:0.1rem;">
+					<dl class="zz-dl1" style="padding-top: 0;">
+						<dd @click="closetc44to(1)" >
+							国有
+						</dd>
+						<dd @click="closetc44to(2)" >
+							事业单位
+						</dd>
+						<dd @click="closetc44to(3)" >
+							股份制
+						</dd>
+						<dd @click="closetc44to(4)" >
+							社会团体
+						</dd>
+						<dd @click="closetc44to(5)" >
+							民营
+						</dd>
+						<dd @click="closetc44to(6)" >
+							个体工商户
+						</dd>
+						<dd @click="closetc44to(7)" >
+							境外独资
+						</dd>
+						<dd @click="closetc44to(8)" >
+							非盈利组织
+						</dd>
+						<dd @click="closetc44to(9)" >
+							合资
+						</dd>
+						<dd @click="closetc44to(10)" >
+							其他
+						</dd>
+					</dl>
+				</div>
+			</div>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>公司规模</dt>
+			<select name=""  slot="inputval">
+				<option value="请选择">请选择 </option>
+			</select>
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>公司成立时间</dt>
+			<input type="text" value="自动带出" slot="inputval" readonly>
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>经营环境</dt>
+			<select name=""  slot="inputval">
+				<option value="请选择">请选择 </option>
+			</select>
+		</zz-dl1>
+		<zz-dl3>
+			<dt slot="title"><sup>*</sup>经营产品服务类型</dt><br>
+			<select name="" class="sdl3" slot="inputval">
+				<option value="请选择">请选择 </option>
+			</select>
+		</zz-dl3>
+		<zz-dl3>
+			<dt slot="title"><sup>*</sup>企业经营场所性质</dt><br>
+			<select name="" class="sdl3"  slot="inputval">
+				<option value="请选择 ">请选择 </option>
+			</select>
+		</zz-dl3>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>商户邮编</dt>
+			<input type="text" placeholder="请输入商户邮编" slot="inputval">
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>商户固定电话</dt>
+			<input type="text" placeholder="请输入商户固定电话" slot="inputval">
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>商户网站名称</dt>
+			<input type="text" placeholder="请输入商户网站名称" slot="inputval">
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>商户app名称</dt>
+			<input type="text" placeholder="请输入app名称" slot="inputval">
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>商户网址</dt>
+			<input type="text" placeholder="请输入商户网址" slot="inputval">
+		</zz-dl1>
+		<zz-dl1>
+			<dt slot="title"><sup>*</sup>ICP备案号</dt>
+			<input type="text" placeholder="请输入ICP备案号" slot="inputval">
+		</zz-dl1>
+		<div class="h50">&nbsp;</div>
+		<div class="zz-submit">
+			<p class="ison">保存此栏信息</p>
+		</div>
+		<div class="zz-submit">
+			<p class="btn">上一步</p>
+		</div>
+		<div class="h50">&nbsp;</div>
+	</div>
+	<script src="./zzqy/js/index.js"></script>
+	<script type="text/javascript">	
+	</script>
+
+</body>
+</html>

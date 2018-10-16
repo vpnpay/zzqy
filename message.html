@@ -53,7 +53,7 @@
 				（附件请以图片形式上传，允许的后缀为：jpg、pdf，每张图片
 不超过300K）</div>
 		</div>
-			<div class="zz-tc1" v-if="zztc5val">
+			<div class="zz-tc1" v-if="zztc5val" >
 				<div class="container" style="text-align: center; height: 30%; ">
 					<ul @click="closetc5">确定</ul>
 					<b @click="closetc5"><img src="./zzqy/img/icon-close.png"></b>
@@ -65,7 +65,7 @@
 					</dl>
 				</div>
 			</div>
-			<div class="zz-tc1" v-if="zztc4val">
+			<div class="zz-tc1" v-if="zztc4val" @click="closetc4box" >
 				<div class="container" style="text-align: center; height: 3rem; margin-bottom:0.1rem;">
 					<dl class="zz-dl1">
 						<dd @click="closetc4to1" :style="styless1">
