@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>自助签约</title>
+	<meta charset="utf-8">
+	<script src="./zzqy/js/vue.min.js"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="./zzqy/css/index.css">
+	<style type="text/css">
+	</style>
+</head>
+<body >		
+	<div id="app">
+		<zz-hd1>
+			<span slot="title">商户确认信息</span>
+		</zz-hd1>
+		<div class="h50">&nbsp;</div>
+		<div class="regform">
+			<div class="rfbox">
+				<!-- 表格内容 -->
+				<div class="pct">登记表格</div>
+			</div>
+		</div>
+		<div class="h20">&nbsp;</div>
+		<div class="zz-rd1">
+			<input type="radio" :checked="zzrd1val" style="display: none;">
+			<img src="./zzqy/img/dom-wxz.png" v-if="zzrd1val" @click="zzrd1valc">
+			<img src="./zzqy/img/dom-yxz.png" v-if="zzrd1val != 1" @click="zzrd1valc">
+			我已阅读并同意上述条款中的内容 
+		</div>
+		<div class="zz-submit">
+			<p class="ison">确认无误</p>
+		</div>
+		<div class="zz-submit">
+			<p class="btn">修改信息</p>
+		</div>
+		<div class="h50">&nbsp;</div>
+	</div>
+	<script src="./zzqy/js/index.js"></script>
+	<script type="text/javascript">	
+	</script>
+
+</body>
+</html>

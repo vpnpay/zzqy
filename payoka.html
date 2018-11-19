@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>自助签约</title>
 	<meta charset="utf-8">
+	<title>自助签约</title>
 	<script src="./zzqy/js/vue.min.js"></script>
+	<script src="./zzqy/js/index.js"></script>
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
 	<link rel="stylesheet" type="text/css" href="./zzqy/css/index.css">
 	<style type="text/css">
+
 	</style>
 </head>
-<body >		
+<body>
 	<div id="app">
-		<div class="zz-bbottom">
-			<zz-hd1>
-				<span slot="title">企业账户验证</span>
-			</zz-hd1>
+		<zz-hd1>
+			<span slot="title">签约申请</span>
+		</zz-hd1>
+		<zz-pres>
+			<p slot="pclass" class="payok">提交成功！ </p>
+		</zz-pres>
+		<div class="zz-prestext">
+			请等待客户经理与您联系确认费率等信息，预计
+在1-2个工作日。
+		</div>
+		<div class="h20" style="border-top:1px dashed #ddd; margin: 0.3rem 0.24rem;"></div>
+		<div class="zz-bbottom" style="border: 0;">
 			<zz-dl4>
 				<dt slot="title">企业账户名称</dt>
 				<dd slot="inputval">
@@ -34,32 +44,17 @@
 				</dd>
 			</zz-dl4>
 		</div>
-		<zz-dl1>
-			<dt slot="title">入账金额</dt>
-			<input type="text" placeholder="单位：元" slot="inputval">
-		</zz-dl1>
-		<div class="zz-rd1" style="color: #df0012;">
-			输错次数上限，请重新填写账户信息 
+		<div class="zz-rd1" style="color: #df0012;font-size: 0.22rem;">
+			请留意您的邮件或短信，确认完成后，开始签约电子合同。
 		</div>
-		<div class="zz-submit">
-			<p class="ison" @click="closetc6to1">提交</p>
-		</div>
-		<div class="zz-tc1" v-if="zztc6val">
-				<div class="container" style="text-align: center; height: 30%; ">
-					<ul @click="closetc6">确定</ul>
-					<b @click="closetc6"><img src="./zzqy/img/icon-close.png"></b>
-					<dl>
-						<dt>提示</dt>
-						<dd>
-							已输错一次，仅剩两次机会
-						</dd>
-					</dl>
-				</div>
+		<div class="h20"></div>
+		<div class="zz-btn1">
+			<a href="#">确定</a>
 		</div>
 	</div>
 	<script src="./zzqy/js/index.js"></script>
-	<script type="text/javascript">	
+	<script type="text/javascript">
+		
 	</script>
-
 </body>
 </html>

@@ -17,69 +17,189 @@
 		
 		<zz-dl1>
 			<dt slot="title">企业证照号类型</dt>
-			<select name=""  slot="inputval">
+			<select name="qyzjhlx" v-model="qyzjhlx" slot="inputval" style="padding-left: 0.05rem;" @change="getGyzjhlxbox" >
 				<option value="统一社会信用代码">统一社会信用代码</option>
+				<option value="工商登记号">工商登记号</option>
 			</select>
 		</zz-dl1>
 		<div class="zz-bz01" style="color:#e35513;">
 			请上传贵公司资质材料照片或扫描件，此证照文件仅用于商户入网资质审查。
 		</div>
-		
+	<div v-if="qyzjhlxbox">
 		<div class="zz-sfzbox">
 			<div class="demo">
 			   <div class="item">
 			   		<ul>
 			   			<li>
-			   				<input type="file" id="xdaTanFileImg" onchange="xmTanUploadImg(this)"  />
-			   				<img id="xmTanImg"/>
+			   				<input type="file" id="xdaTanFileImg1" onchange="xmTanUploadImg1(this)"  />
+			   				<img />
 			   			</li>
 			   			<li>企业营业执照</li>
 			   		</ul>
 				</div>
 			   <div class="item">
 			   		<ul>
-			   			<li><input type="file"/></li>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg2" onchange="xmTanUploadImg2(this)"  />
+			   				<img />
+			   			</li>
 			   			<li>商户外部照片（含门牌）</li>
 			   		</ul>
 				</div>
 				<div class="item">
 			   		<ul>
-			   			<li><input type="file"/></li>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg3" onchange="xmTanUploadImg3(this)"  />
+			   				<img />
+			   			</li>
 			   			<li>商户内部照片</li>
 			   		</ul>
 				</div>
 				<div class="item">
 			   		<ul>
-			   			<li><input type="file"/></li>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg4" onchange="xmTanUploadImg4(this)"  />
+			   				<img />
+			   			</li>
 			   			<li>银行开户许可证</li>
 			   		</ul>
 				</div>
 				<div class="item">
 			   		<ul>
-			   			<li><input type="file"/></li>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg5" onchange="xmTanUploadImg5(this)"  />
+			   				<img />
+			   			</li>
 			   			<li>拓展商户确认函</li>
 			   		</ul>
 				</div>
 			   <div class="item">
 			   		<ul>
-			   			<li><input type="file"/></li>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg6" onchange="xmTanUploadImg6(this)"  />
+			   				<img />
+			   			</li>
 			   			<li>ICP备案材料</li>
 			   		</ul>
 				</div>
 				<div class="item">
 			   		<ul>
-			   			<li><input type="file"/></li>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg7" onchange="xmTanUploadImg7(this)"  />
+			   				<img />
+			   			</li>
 			   			<li>实缴资本材料</li>
 			   		</ul>
 				</div>
 				<div class="item">
 			   		<ul>
-			   			<li><input type="file"/></li>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg8" onchange="xmTanUploadImg8(this)"  />
+			   				<img />
+			   			</li>
 			   			<li>特殊许可证</li>
 			   		</ul>
 				</div>
 			</div>
 		</div>
+	</div>
+	<div v-if="!qyzjhlxbox">
+		<div class="zz-sfzbox">
+			<div class="demo">
+			   <div class="item">
+			   		<ul>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg11" onchange="xmTanUploadImg11(this)"  />
+			   				<img />
+			   			</li>
+			   			<li>企业营业执照</li>
+			   		</ul>
+				</div>
+			   <div class="item">
+			   		<ul>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg12" onchange="xmTanUploadImg12(this)"  />
+			   				<img />
+			   			</li>
+			   			<li>商户外部照片（含门牌）</li>
+			   		</ul>
+				</div>
+				<div class="item">
+			   		<ul>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg13" onchange="xmTanUploadImg13(this)"  />
+			   				<img />
+			   			</li>
+			   			<li>商户内部照片</li>
+			   		</ul>
+				</div>
+				<div class="item">
+			   		<ul>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg14" onchange="xmTanUploadImg14(this)"  />
+			   				<img />
+			   			</li>
+			   			<li>银行开户许可证</li>
+			   		</ul>
+				</div>
+				<div class="item">
+			   		<ul>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg15" onchange="xmTanUploadImg15(this)"  />
+			   				<img />
+			   			</li>
+			   			<li>拓展商户确认函</li>
+			   		</ul>
+				</div>
+			   <div class="item">
+			   		<ul>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg16" onchange="xmTanUploadImg16(this)"  />
+			   				<img />
+			   			</li>
+			   			<li>ICP备案材料</li>
+			   		</ul>
+				</div>
+				<div class="item">
+			   		<ul>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg17" onchange="xmTanUploadImg17(this)"  />
+			   				<img />
+			   			</li>
+			   			<li>实缴资本材料</li>
+			   		</ul>
+				</div>
+				<div class="item">
+			   		<ul>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg18" onchange="xmTanUploadImg18(this)"  />
+			   				<img />
+			   			</li>
+			   			<li>特殊许可证</li>
+			   		</ul>
+				</div>
+				<div class="item">
+			   		<ul>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg19" onchange="xmTanUploadImg19(this)"  />
+			   				<img />
+			   			</li>
+			   			<li>税务登记证</li>
+			   		</ul>
+				</div>
+				<div class="item">
+			   		<ul>
+			   			<li>
+			   				<input type="file" id="xdaTanFileImg20" onchange="xmTanUploadImg20(this)"  />
+			   				<img />
+			   			</li>
+			   			<li>特殊许可证</li>
+			   		</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+		
 		<div class="zz-bz01" style="color:#999999;">
 			以上材料JPG、PNG、PDF格式均可，小于5M
 		</div>

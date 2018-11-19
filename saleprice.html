@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>自助签约 </title>
+	<meta charset="utf-8">
+	<script src="./zzqy/js/vue.min.js"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="./zzqy/css/index.css">
+	<style type="text/css">
+	</style>
+</head>
+<body >		
+	<div id="app">
+		<div class="zz-bbottom" style="border: 0;">
+			<zz-hd1>
+				<span slot="title">自助签约进度查询</span>
+			</zz-hd1>
+			<div class="zz-dl4 zz-dl4a">
+				<dl>
+					<dt><img src="./zzqy/img/dom-home.png"> <span>agoda</span></dt>
+					<dd>
+						<img src="./zzqy/img/dom-bot.png">
+					</dd>
+				</dl>
+			</div>
+			<div style="background: rgba(51,159,223,0.05);">
+				<div class="zz-dl3 zz-dl33" >
+					<dl>
+						<dt>
+							服务产品服务类型(多选) 
+							<img src="./zzqy/img/jiajia.png" @click="fwcpbox">
+						<dt>
+						<dd>
+							<div v-for="(fwcpcheckedName,index) in fwcpcheckedNames">
+								<div v-if="fwcpcheckedName.xz">{{fwcpcheckedName.title}}<img src="./zzqy/img/jiejie.png" class="jiejie" @click="fwcpcheckedName.xz = false" ></div>
+							</div>
+						</dd>
+					</dl>
+				</div>
+				<div class="zz-tc1"  v-if="fwcpval">
+					<div class="container containerfwc" style="height: 60%; ">
+						<dl style="bottom: 0; background:none; display: flex; flex-direction: row; padding-top: 0.2rem; padding-bottom: 0.2rem;">
+							<div class="zz-submit" style="width: 48%;" @click="fwcpbox">
+									<p class="ison">确定</p>
+								</div>
+							<div class="zz-submit" style="width: 48%;" @click="fwcpbox">
+									<p class="btn">取消</p>
+								</div>
+						</dl>
+						<dl v-for="(fwcpcheckedName,index) in fwcpcheckedNames" style="overflow:hidden;">
+							<dt v-if="!fwcpcheckedName.xz" @click="fwcpcheckedName.xz = true" >
+								{{fwcpcheckedName.title}}
+							</dt>
+							<dt class="hb" v-if="fwcpcheckedName.xz" @click="fwcpcheckedName.xz = false" >{{fwcpcheckedName.title}}</dt>
+						</dl>
+					</div>
+				</div>
+				<zz-dl1>
+					<dt slot="title">业务联系人</dt>
+					<input type="text" placeholder="自动带出" slot="inputval">
+				</zz-dl1>
+				<zz-dl3>
+					<dt slot="title">业务联系人手机号码</dt><br>
+					<input type="text" placeholder="自动带出" slot="inputval">
+				</zz-dl3>
+				<zz-dl3>
+					<dt slot="title">业务联系人邮箱</dt><br>
+					<input type="text" placeholder="自动带出" slot="inputval">
+				</zz-dl3>
+				<div class="zz-dl3" style="height: auto;padding-left: 0.3rem; padding-right: 0.3rem; ">
+					<dl>
+						<dt class="title">公司主营业务</dt>
+						<dd class="inputval" style="padding-left: 1.7rem; font-size: 0.21rem;">
+							为银行支付、转账等业务提供技术平台、软件开发、技术转让和相关服务；计算机软、硬件的开发、设计、销售、系统集成，自有设备租赁，公司自产软件产品的批发，互联网支付，移动电话支付。
+						</dd>
+					</dl>
+				</div>
+				<zz-dl1>
+					<dt slot="title">经营产品类型</dt>
+					<input type="text" placeholder="自动带出" slot="inputval">
+				</zz-dl1>
+				<zz-dl1>
+					<dt slot="title">违约金</dt>
+					<div slot="inputval">
+						<input type="text" placeholder="请填写违约金" style="width: 3.7rem;" > 元
+					</div>
+				</zz-dl1>
+				<div class="zz-dl1">
+					<dl>
+						<dt class="title">MCC</dt>
+						<dd class="inputval">
+							<input type="text" placeholder="请选择" style="width: 1.5rem; background: url(./zzqy/img/ab2.png) no-repeat 98% 50%; "  v-model="mccvalval"  @click="mccvbox" >
+						</dd>
+					</dl>
+				</div>
+				<div class="zz-tc1"  v-if="mccvtrue">
+					<div class="container containerfwc" style="height: 60%; ">
+						<dl style="bottom: 0; background:none; display: flex; flex-direction: row; padding-top: 0.2rem; padding-bottom: 0.2rem;">
+							<div class="zz-submit" style="width: 48%;" @click="mccvboxqdtj">
+									<p class="ison">确定</p>
+								</div>
+							<div class="zz-submit" style="width: 48%;" @click="mccvbox">
+									<p class="btn">取消</p>
+								</div>
+						</dl>
+						
+						<dl v-for="(mccv,index) in mccval" style="overflow:hidden; background: none;">
+							<dt v-if="!mccv.xz" @click="mccvboxqd(mccv.xz,mccv.val)" >
+								<div @click="mccv.xz = !mccv.xz">
+								<span style="margin-right:0.6rem;">{{mccv.val}}</span>   {{mccv.title}}
+								</div>
+							</dt>
+							<dt class="hb" v-if="mccv.xz" @click="mccvboxqd(mccv.xz,mccv.val)" >
+								<div @click="mccv.xz = !mccv.xz">
+								<span style="margin-right:0.6rem;">{{mccv.val}}</span>  {{mccv.title}}
+								</div>
+							</dt>
+						</dl>
+						<dl style="overflow:hidden; background: none;">
+							<dt style="text-align: left;">
+								<span style="margin-right:1.3rem; margin-left: 0.5rem;">MCC码</span>  MCC描述
+							</dt>
+						</dl>
+					</div>
+				</div>
+				<zz-dl1>
+					<dt slot="title">OA流水号</dt>
+					<input type="text" placeholder="自动带出" slot="inputval">
+				</zz-dl1>
+				<zz-dl1>
+					<dt slot="title">商户网站名称</dt>
+					<input type="text" placeholder="自动带出" slot="inputval">
+				</zz-dl1>
+				<zz-dl1>
+					<dt slot="title">商户网址</dt>
+					<input type="text" placeholder="自动带出" slot="inputval">
+				</zz-dl1>
+				<zz-dl1>
+					<dt slot="title">商户APP名称</dt>
+					<input type="text" placeholder="自动带出" slot="inputval">
+				</zz-dl1>
+				<zz-dl1>
+					<dt slot="title">商户APP地址</dt>
+					<input type="text" placeholder="自动带出" slot="inputval">
+				</zz-dl1>
+				<div style="display: flex;flex-direction: row;">
+					<div class="zz-submit" style="width: 50%;">
+						<p class="btn">终止签约</p>
+					</div>
+					<div class="zz-submit" style="width: 50%;">
+						<select name=""  style=" border: 0; outline: none; font-size: 0.24rem; margin-top:0.25rem;" >
+							<option value="请选择终止原因">请选择终止原因</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="h50"></div>
+		<div class="zz-submit">
+			<p class="ison">填写／查看议价表单</p>
+		</div>
+		<div class="h50"></div>
+	</div>
+	<script src="./zzqy/js/index.js"></script>
+	<script type="text/javascript">	
+	</script>
+
+</body>
+</html>
